@@ -1,0 +1,31 @@
+project:
+  name: atom
+  version: 2024.08.28
+  description: Compare-And-Swap friendly wrapper over an AtomicReference.
+  longDescription: Compare-And-Swap friendly wrapper over an AtomicReference.
+  links:
+    homepage: https://github.com/bowbahdoe/atom
+  authors:
+    - Ethan McCue
+  license: APACHE-2.0
+  inceptionYear: 2024
+  versionPattern: CHRONVER
+  java:
+    mainModule: dev.mccue.atom
+    groupId: dev.mccue
+
+signing:
+  active: ALWAYS
+  armored: true
+
+deploy:
+  maven:
+    nexus2:
+      maven-central:
+        active: ALWAYS
+        url: https://s01.oss.sonatype.org/service/local
+        snapshotUrl: https://s01.oss.sonatype.org/content/repositories/snapshots/
+        closeRepository: false
+        releaseRepository: false
+        stagingRepositories:
+          - build/jstage

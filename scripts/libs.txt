@@ -1,0 +1,4 @@
+pkg:maven/dev.mccue/tools-jdk@2024.08.27.3
+pkg:maven/dev.mccue/tools-googlejavaformat@2024.08.27.3
+pkg:maven/dev.mccue/tools-jstage@2024.08.27.3
+pkg:maven/info.picocli/picocli@4.7.6
