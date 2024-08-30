@@ -1,0 +1,27 @@
+name: Check Formatting
+on: [push, pull_request, release]
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '22'
+          distribution: 'adopt'
+      - uses: extractions/setup-just@v2
+      - name: Install JResolve
+        run:
+          bash < <(curl -s https://raw.githubusercontent.com/bowbahdoe/jresolve-cli/main/install)
+      - name: Bootstrap Build Scripts
+        run:
+          jresolve @bootstrap
+      - name: Install Dependencies
+        run:
+          java @project install
+      - name: Install Tools
+        run:
+          java @project install_tools
+      - name: Check Formatting
+        run: java @project format:check
