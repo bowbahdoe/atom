@@ -69,7 +69,7 @@ public class Project {
         Consumer<JavacArguments> commonArgs = arguments -> {
             arguments
                     .__module_source_path("./modules/*/src")
-                    .__module_version("2024.08.28")
+                    .__module_version("2024.08.30")
                     .__release(21)
                     ._g()
                     ._Werror()

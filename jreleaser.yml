@@ -1,6 +1,6 @@
 project:
   name: atom
-  version: 2024.08.28
+  version: 2024.08.30
   description: Compare-And-Swap friendly wrapper over an AtomicReference.
   longDescription: Compare-And-Swap friendly wrapper over an AtomicReference.
   links:

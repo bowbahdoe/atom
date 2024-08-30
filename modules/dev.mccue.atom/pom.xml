@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>dev.mccue</groupId>
     <artifactId>atom</artifactId>
-    <version>2024.08.28</version>
+    <version>2024.08.30</version>
     <packaging>jar</packaging>
     <name>atom</name>
     <description>Compare-And-Swap friendly wrapper over an AtomicReference.</description>
