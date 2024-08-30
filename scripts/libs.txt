@@ -1,4 +1,7 @@
-pkg:maven/dev.mccue/tools-jdk@2024.08.27.3
-pkg:maven/dev.mccue/tools-googlejavaformat@2024.08.27.3
-pkg:maven/dev.mccue/tools-jstage@2024.08.27.3
+pkg:maven/dev.mccue/tools-jdk@2024.08.30
+pkg:maven/dev.mccue/tools-googlejavaformat@2024.08.30
+pkg:maven/dev.mccue/tools-jstage@2024.08.30
+pkg:maven/dev.mccue/tools-pmd@2024.08.30
+pkg:maven/dev.mccue/tools-jresolve@2024.08.30
+pkg:maven/dev.mccue/tools-junit@2024.08.30
 pkg:maven/info.picocli/picocli@4.7.6

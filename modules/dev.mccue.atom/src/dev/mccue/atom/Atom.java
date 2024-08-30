@@ -6,7 +6,8 @@ import java.util.function.Function;
 /**
  * Simple wrapper over an AtomicReference to provide an API for doing compare and swap operations.
  *
- * Modeled after the atom primitive in clojure.
+ * <p>Modeled after the atom primitive in clojure.
+ *
  * @param <T> The type of data stored in the atom. This is assumed to be an immutable object.
  */
 public final class Atom<T> {
@@ -18,6 +19,7 @@ public final class Atom<T> {
 
     /**
      * Creates an atom wrapping the given data.
+     *
      * @param data The data to be stored in the atom.
      * @param <T> The type of data stored in the atom. This is assumed to be an immutable object.
      * @return An atom containing the given data.
@@ -28,8 +30,9 @@ public final class Atom<T> {
 
     /**
      * Swaps the current value in the atom for the value returned by the function.
-     * @param f The function to apply to the current value. It is expected that this
-     *          will be a "pure" function and thus may be run multiple times.
+     *
+     * @param f The function to apply to the current value. It is expected that this will be a
+     *     "pure" function and thus may be run multiple times.
      * @return The value in the Atom after the function is applied.
      */
     public T swap(Function<? super T, ? extends T> f) {
@@ -43,8 +46,9 @@ public final class Atom<T> {
     }
 
     /**
-     * Pair of the new value swapped into an atom and some value that was
-     * derived in the course of calculating that new value.
+     * Pair of the new value swapped into an atom and some value that was derived in the course of
+     * calculating that new value.
+     *
      * @param <T> Type of the new value.
      * @param <R> Type of the derived value.
      * @param newValue The new value.
@@ -55,7 +59,8 @@ public final class Atom<T> {
     /**
      * Performs a swap that carries over some context from the computation to the caller.
      *
-     * For example, a basic usage would be to return some whether a value was inserted into a map.
+     * <p>For example, a basic usage would be to return some whether a value was inserted into a
+     * map.
      *
      * <pre>{@code
      * sealed interface PlayerJoinResult permits AlreadyInGame, Success {}
@@ -81,15 +86,14 @@ public final class Atom<T> {
      * }
      * }</pre>
      *
-     * @param f The function to apply to the current value. It is expected that this
-     *          will be a "pure" function and thus may be run multiple times.
+     * @param f The function to apply to the current value. It is expected that this will be a
+     *     "pure" function and thus may be run multiple times.
      * @param <R> The type of the context attached to the final result.
-     * @return A pair of the new value put into the atom and the derived value from the
-     * computation of that new value.
+     * @return A pair of the new value put into the atom and the derived value from the computation
+     *     of that new value.
      */
     public <R> SwapResult<T, R> complexSwap(
-            Function<? super T, SwapResult<? extends  T, ? extends R>> f
-    ) {
+            Function<? super T, SwapResult<? extends T, ? extends R>> f) {
         while (true) {
             final var start = ref.get();
             final var res = f.apply(start);
@@ -101,6 +105,7 @@ public final class Atom<T> {
 
     /**
      * Resets the value in the atom to the given value.
+     *
      * @param data The new value to be stored in the atom.
      * @return The new value stored in the atom.
      */
@@ -111,6 +116,7 @@ public final class Atom<T> {
 
     /**
      * Gets the atom's current value.
+     *
      * @return The atom's current value.
      */
     public T get() {
